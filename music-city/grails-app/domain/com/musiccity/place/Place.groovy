@@ -11,6 +11,7 @@ class Place {
 	String city
 	String zip
 	String country
+	String location
 	String photo
 	
 	static belongsTo = [event: Event]

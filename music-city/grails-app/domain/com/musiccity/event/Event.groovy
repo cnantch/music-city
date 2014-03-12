@@ -1,6 +1,6 @@
 package com.musiccity.event
 
-import com.musiccity.music.Style;
+import com.musiccity.music.Band
 import com.musiccity.place.Place
 
 
@@ -13,7 +13,11 @@ class Event {
 	String price
 	Place place
 	
-	static hasMany = [styles: Style]
+	static belongsTo = Band
+	
+	static hasMany = [
+		bands: Band
+	]
 	
 	
     static constraints = {

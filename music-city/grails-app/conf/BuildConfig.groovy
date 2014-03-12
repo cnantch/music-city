@@ -50,6 +50,8 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
          runtime 'mysql:mysql-connector-java:5.1.27'
         // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
+		 runtime "org.elasticsearch:elasticsearch:0.90.7"
+		 runtime "org.elasticsearch:elasticsearch-lang-groovy:1.5.0"
     }
 
     plugins {
@@ -60,7 +62,7 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.0.2"
         compile ':cache:1.1.1'
 		compile ':spring-security-core:2.0-RC2'
-		compile ":spring-security-facebook:0.15.2-CORE2"
+//		compile ":spring-security-facebook:0.15.2-CORE2"
 		compile ":mail:1.0.1"
 
         // plugins needed at runtime but not for compilation
@@ -68,6 +70,7 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.3.8"
         runtime ":jquery:1.11.0.2"
         runtime ":resources:1.2.7"
+		
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"
