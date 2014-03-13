@@ -2,27 +2,30 @@ package com.musiccity.seach
 
 import static org.elasticsearch.groovy.node.GNodeBuilder.nodeBuilder
 import grails.transaction.Transactional
-
-import org.elasticsearch.groovy.client.GClient
-import org.elasticsearch.groovy.node.GNode
-import static org.elasticsearch.groovy.node.GNodeBuilder.nodeBuilder
+import io.searchbox.client.JestClient
+import io.searchbox.client.JestClientFactory
+import io.searchbox.client.config.ClientConfig
+import io.searchbox.client.config.HttpClientConfig
 
 @Transactional
 class SearchClientService {
 
 	
-	GNode node = nodeBuilder().node();
-	GClient client = node.client();
+	JestClient client = null;
+    def init() {
+		// Configuration
+		ClientConfig clientConfig = new HttpClientConfig.Builder("http://localhost:9200").multiThreaded(true).build();
 
-	def init() {
-	}
-	
+		// Construct a new Jest client according to configuration via factory
+		JestClientFactory factory = new JestClientFactory();
+		factory.setHttpClientConfig(clientConfig);
+		client = factory.getObject();
+    }
 	def destroy() {
-		node.stop().close()
+		client.close();
 	}
-	
-	GClient getClient() {
-		return client
+	JestClient getClient() {
+		return client;
 	}
 	
 }

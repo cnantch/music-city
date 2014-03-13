@@ -3,11 +3,11 @@ import com.musiccity.music.Style
 
 class BootStrap {
 	
-//	def searchClientService
+	def searchClientService
 
     def init = { servletContext ->
 		
-//		searchClientService.init()
+		searchClientService.init()
 		
 		initPlaces()
 		initStyles()
